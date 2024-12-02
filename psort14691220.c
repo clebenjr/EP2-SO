@@ -118,7 +118,8 @@ int main(int argc, char* argv[]) {
 
     num_threads = atoi(argv[3]);
     if (num_threads <= 0) {
-        num_threads = sysconf(_SC_NPROCESSORS_ONLN);
+        fprintf(stderr, "Número inválido de threads: %d\n", num_threads);
+        return 1;
     }
 
     pthread_t threads[num_threads];
